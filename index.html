@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>Stranger Things Game</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- jQuery Script -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script src="assets/javascript/rolePlayGame.js"></script>
+	<!-- Enhanced CSS Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style-st.css">
+	
+</head>
+<body>
+
+	<!-- Hero Area -->
+	<div class="jumbotron">
+		<div class="container-fluid st-image">
+			<div class="row">
+				<div class="col-lg-12 img-banner">
+					<img src="assets/images/stranger-things-banner-red.jpg" alt="Stranger Things Opening Credit Image">
+	    		</div>
+	    	</div>		
+	    </div>
+	</div>
+
+	<div class="container">
+    	<div class="row">
+    		<div class="col-lg-10 col-lg-offset-1">
+            	<div class="panel panel-default">
+	  				<div class="panel-heading">Select your player</div>
+	  				<div class="panel-body character-select">
+					</div>
+	    			<!-- Ends Panel -->
+    			</div>
+    		<!-- Ends Column 1 -->
+    		</div>
+    	<!-- Ends Row 1-->
+    	</div>
+		<!-- Starts Row 2 -->
+		<div class="row">
+			<!-- Starts Column 1 -->
+    		<div class="col-lg-4 col-lg-offset-1" id="attacker">
+	            	<div class="panel panel-default">
+	  				<div class="panel-body activeName">
+	    				This is where the attacker character image will go!
+	    			<figure class ="activeAttackChar">
+						<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=175&h=175" alt="..." class="img-rounded character">
+						<figcaption>Attacking Character</figcaption>
+					</figure>
+	    			<!-- Ends Panel Body -->
+					</div>
+	    			<!-- Ends Panel -->
+	    			</div>
+	    		<!-- Ends Column 1 -->
+	    		</div>
+    		<!-- Starts Column 1 -->
+    		<div class="col-lg-2" id ="attack">
+            <!-- Starts Attack Button -->
+    			<button type="button" class="btn btn-danger" id ="attack-button">Attack</button>
+    		<!-- Ends Attack Button -->
+    		<!-- Ends Column 2 -->
+    		</div>
+    		<!-- Starts Column 3 -->
+    		<div class="col-lg-4"  id= "defender">
+            	<!-- Starts Panel -->
+            	<div class="panel panel-default">
+  				<!-- Starts Panel Body -->
+  				<div class= "panel-body activeName">
+    				This is where the defender image will go!
+    			<!-- Starts Defender Figure -->
+    			<figure class ="activeDefenseChar">
+					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=175&h=175" alt="..." class="img-rounded character">
+					<figcaption>Defending Character</figcaption>
+				<!-- Ends Defender Figure -->
+				</figure>
+    			<!-- Ends Panel Body -->
+				</div>
+    			<!-- Ends Panel -->
+    			</div>
+    		<!-- Ends Column 3 -->
+    		</div>
+    	<!-- Ends Row 2-->
+    	</div>
+		<!-- Starts Row 3 -->
+		<div class="row">
+			<!-- Starts Column 1 -->
+    		<div class="col-lg-4 col-lg-offset-4" id ="restart">
+            <!-- Starts Restart Button -->
+    			<button type="button" class="btn btn-success" id ="attack-button">Restart</button>
+    		<!-- Ends Attack Button -->
+
+    <!--Ends Container -->
+	</div>
+
+
+		
+</body>
+</html>

@@ -1,0 +1,25 @@
+.jumbotron{
+	padding: 0px;
+	margin-bottom: 0px;
+	background-color: black;
+	background-repeat: none;
+	text-align: center;
+}
+
+body{
+
+	background-color: black;
+}
+
+.character0, .character1, .character2, .character3 {
+	float: left;
+	margin: 2%;
+
+}
+
+.panel {
+
+	background-color: #474747;
+	color: white;
+}
+
