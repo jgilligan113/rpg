@@ -1,6 +1,19 @@
 
 $(document).ready(function() {
 
+	var audioElement = document.createElement("audio");
+      audioElement.setAttribute("src", "assets/01-Stranger-Things.m4a");
+
+    $(".theme-button").click(function() {
+    	audioElement.play();
+    });
+
+    $(".pause-button").click(function() {
+    	audioElement.pause();
+    });
+    
+	
+
 	var character = [ 
 
 		{	id: "char0",
@@ -9,8 +22,8 @@ $(document).ready(function() {
 				src: "assets/images/stranger-things-starter-will.png",
 				alt: "Will"
 					 },
-			strength: 100,
-			hitPwr: 20
+			strength: 120,
+			hitPwr: 10
 		},
 
 		{	id: "char1",
@@ -20,7 +33,7 @@ $(document).ready(function() {
 				alt:"Dustin"
 					 },
 			strength: 120,
-			hitPwr: 30
+			hitPwr: 10
 		},
 
 		{	id: "char2",
@@ -30,7 +43,7 @@ $(document).ready(function() {
 				alt: "Eleven"
 					 },
 			strength: 180,
-			hitPwr: 80
+			hitPwr: 15
 		},	
 
 		{	id: "char3",
@@ -39,7 +52,7 @@ $(document).ready(function() {
 				src: "assets/images/stranger-things-starter-mike.png",
 				alt:"Mike"},
 			strength: 140,
-			hitPwr: 40
+			hitPwr: 12
 		},
 
 		{	id: "char4",
@@ -48,13 +61,14 @@ $(document).ready(function() {
 				src: "assets/images/stranger-things-starter-lucas.png",
 				alt:"Lucas"},
 			strength: 160,
-			hitPwr: 50
+			hitPwr: 10
 		}
 
 	];
 	
-	var activeCharacters = ["", ""];
-	var	defeatedCharacters = [];
+	//var activeCharacters = ["", ""];
+	//var	defeatedCharacters = [];
+	var attackCount = 0;
 	
 	var activeAttackerLife = 0;
 	var activeAttackerHit = 0;
@@ -84,6 +98,7 @@ $(document).ready(function() {
 		$( ".character-select" ).append( images );
 		
 	};
+
 //select your players...
 
 	$("body").on("click", ".characters", function() {
@@ -95,7 +110,8 @@ $(document).ready(function() {
 			alert("Quick, attack your opponent before the demogorgon takes you to the upsidedown!");
 			$(".opponent-selection").addClass("noMoreSelect");
 			$(".character-selection").removeClass("characters");
-			//console.log(this);
+			$(".attackerStats").html("Name:  <strong>" +activeAttackerName+ "</strong> <br>Life:  <strong>" +activeAttackerLife+ "</strong>");
+			console.log (activeOpponentName, activeOpponentHit, activeOpponentLife);
 			
 				if ($(this).hasClass("char0")) { activeOpponentLife = charLife[0];
 							  activeOpponentHit = charHP[0];
@@ -118,17 +134,19 @@ $(document).ready(function() {
 			 		   activeOpponentName = charName [4];
 								}										
 
+				$(".opponentStats").html("Name:  <strong>" +activeOpponentName+ "</strong> <br>Life:  <strong>" +activeOpponentLife+ "</strong>");
 				console.log (activeOpponentName, activeOpponentHit, activeOpponentLife);
 		}
 		
-		else if ($(".characters").hasClass("character-selection")) {
+		else { /*($(".characters").hasClass("character-selection"))*/ 
 
 		$(this).addClass(".activeAttackChar");
 		$(".attackerPanel").html(this);
 		$(this).removeClass("character-selection");
 		$(".select").text("Select your opponent");
 		$(".characters").addClass("opponent-selection");
-		
+		$(".opponentStats").html("Name:  <strong>" +activeAttackerName+ "</strong> <br>Life:  <strong>" +activeAttackerLife+ "</strong>");
+
 				if ($(this).hasClass("char0")) { activeAttackerLife = charLife[0];
 							 activeAttackerHit = charHP[0];
 							 activeAttackerName = charName [0];
@@ -152,65 +170,115 @@ $(document).ready(function() {
 
 				console.log (this);
 				console.log (activeAttackerName, activeAttackerHit, activeAttackerLife);
+				$(".attackerStats").html("Name:  <strong>" +activeAttackerName+ "</strong> <br> Life: <strong>" +activeAttackerLife+ "</strong>");
 		
-		
-	} else {}
-
+	} 
 
 //attack your opponent...
-$("body").on("click", "#attack-button", function() { 
+	$("body").on("click", "#attack-button", function() { 
 
-	activeOpponentLife = activeOpponentLife - activeAttackerHit;
-	activeAttackerLife = activeAttackerLife - activeOpponentHit;
-	console.log (activeAttackerName, activeAttackerHit, activeAttackerLife);
-	console.log (activeOpponentName, activeOpponentHit, activeOpponentLife);	
+		attackCount = attackCount++;
+		console.log(attackCount);
+		activeOpponentLife = activeOpponentLife - activeAttackerHit;
+		activeAttackerLife = activeAttackerLife - activeOpponentHit;
+		activeOpponentHit = activeOpponentHit-1;
+		console.log (activeAttackerName, activeAttackerHit, activeAttackerLife);
+		console.log (activeOpponentName, activeOpponentHit, activeOpponentLife);	
+		$(".attackerStats").html("Name:  <strong>" +activeAttackerName+ "</strong> <br> Life: <strong>" +activeAttackerLife+ "</strong>");
+		$(".opponentStats").html("Name:  <strong>" +activeOpponentName+ "</strong> <br> Life: <strong>" +activeOpponentLife+ "</strong>");
 
-	if (activeAttackerLife > 1 && activeOpponentLife < 1) {
+		if (attackCount = 6 && activeAttackerLife < activeOpponentLife) {
 
-		$(".opponentPanel").html("");
-		$(".characters").addClass("characters opponent-selection");
-		alert("Well done! Select your next opponent!");
-	}
+			//activeOpponentLife = activeOpponentLife - 7;
+			activeAttackerHit = activeAttackerHit + 3;
+			//alert("Your oppenent is weakening!");
+		} else {}
 
-		else if ( activeAttackerLife < 1 ) {
+		if (attackCount = 7 && activeAttackerLife < activeOpponentLife) {
 
-			alert("Best of luck in the UPSIDEDOWN! Click restart to try again!");
+			activeAttackerLife = activeAttackerLife + 3;
+			//alert("Eleven has given you a boost");
+		} else {}
 
-		}
 
+		if (activeAttackerLife > 1 && activeOpponentLife < 1) {
+
+			$(".opponentPanel").html("");
+			attackCount = 0;
+			activeOpponentLife = 0;
+			activeOpponentHit = 0;
+			activeOpponentName = "";
+			activeAttackerLife = activeAttackerLife+3;
+			$(".opponentStats").html("<strong>SELECT ANOTHER OPPONENT!</strong>");
+			$(".opponents").addClass("characters opponent-selection");
+			
+			
+
+			if (!$(".character-selection").hasClass("opponents")) {
+				alert("You've Won!!! You're living in the RIGHTSIDEUP!")
+
+				} 
+					else  { //alert("Well done! Select your next opponent!");
+					}
+
+			}
+			else if ( activeAttackerLife < 1 ) {
+
+				alert("Best of luck in the UPSIDEDOWN! Click restart to try again!");
+
+			}
 			else {}
 
-	});
-
-});
-
-//get next opponent loop...
-
-
-//when no more opponents and strength >0 you win
-
-//when strength =< 0 and opponent is still >0, you LOSE Cue 11 to come find you!	
-
-
-
-});
-	
-
-	
-
-	//$(".character-selection").on("click" function() {
+		});
 		
-	//	activeAttackChar.append(this.html);
+		});
+	
+	
+//restart button to refresh the game...
 
-	//})
+	$("#restart-button").on("click", function () {
 
 
+	attackCount = 0;
+	
+	activeAttackerLife = 0;
+	activeAttackerHit = 0;
+	activeAttackerName = "";
+	
+	activeOpponentLife = 0;
+	activeOpponentHit = 0;
+	activeOpponentName = "";
+	
+	charLife = [];
+	charHP = [];
+	charName = [];
 
+	$(".character-selection").html("");
+	$(".select").text("Select your player!");
+	$(".opponentStats").html("Opponent");
+	$(".attackerStats").html("Player");
+	$(".opponentPanel").html("");
+	$(".attackerPanel").html("");
 
-	//on.("Click", function() {
+	for ( i = 0; i < character.length; i++ ) {
 
-	//	activeCharacters.push(this.character);
-		//disply strength in div below image from object
+		charLife.push(character[i].strength);
+		console.log(charLife);
+		charHP.push(character[i].hitPwr);
+		console.log(charHP);
+		charName.push(character[i].name);
+		console.log(charName);
+		
+		//var caption = $("<figurecaption>");
+		var images = $("<div>").attr("class", "characters character-selection char" +[i]); 
+		images.html("<img" + " src=" + '"' + character[i].picture.src + '" height="175px" width="175px"/>')
+
+		$( ".character-select" ).append( images );
+		
+	};
+	})
+
+});
 
 
 
