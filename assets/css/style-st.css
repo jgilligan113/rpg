@@ -11,10 +11,10 @@ body{
 	background-color: black;
 }
 
-.character0, .character1, .character2, .character3 {
-	float: left;
-	margin: 2%;
-
+.character-selection {
+    margin: 0;
+    width: 180px;
+    float: left;
 }
 
 .panel {
@@ -23,3 +23,10 @@ body{
 	color: white;
 }
 
+.btn{
+	
+	width: 80%;
+	margin-top: 1%;
+    text-align: center;
+    margin-left: 12%;
+}
