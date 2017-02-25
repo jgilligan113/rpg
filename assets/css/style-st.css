@@ -15,6 +15,7 @@ body{
     margin: 0;
     width: 180px;
     float: left;
+    ≈
 }
 
 .panel {
@@ -30,3 +31,39 @@ body{
     text-align: center;
     margin-left: 12%;
 }
+
+.mdl-button.mdl-button--colored , .mdl-button--fab.mdl-button--colored:active, .mdl-button--fab.mdl-button--colored:hover  {
+    	background-color: #474747;
+    color:#fff;
+
+}
+
+.mdl-button {
+	background-color: #474747;
+	color:white;
+}
+
+.audio-buttons, #buttons, .attackerPanel, .opponentPanel {
+
+	text-align: center;
+}
+
+.enjoy {
+
+	color:white;
+}
+
+#attack-button, #restart-button {
+
+	color: #fff;
+	background-color: #d05f5f;
+}
+
+.opponentPanel{
+
+    position: relative;
+    left: 40%;
+}
+
+
+

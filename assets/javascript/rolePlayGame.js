@@ -143,6 +143,8 @@ $(document).ready(function() {
 		$(this).addClass(".activeAttackChar");
 		$(".attackerPanel").html(this);
 		$(this).removeClass("character-selection");
+		$(this).removeClass("characters");
+		$(this).removeClass("opponents");
 		$(".select").text("Select your opponent");
 		$(".characters").addClass("opponent-selection");
 		$(".opponentStats").html("Name:  <strong>" +activeAttackerName+ "</strong> <br>Life:  <strong>" +activeAttackerLife+ "</strong>");

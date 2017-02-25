@@ -17,6 +17,9 @@
 
 	<script src="assets/javascript/rolePlayGame.js"></script>
 	<!-- Enhanced CSS Stylesheet -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="assets/css/style-st.css">
 	
 </head>
@@ -35,18 +38,22 @@
 
 	<div class="container">
     	<div class="row">
-    		<div class="col-lg-10 col-lg-offset-1">
-    		<button class="btn btn-warning btn-xs theme-button"><span class="glyphicon glyphicon-music"></span> Play Theme!</button>
-        <button class="btn btn-default btn-xs pause-button"><span class="glyphicon glyphicon-pause"></span> Pause Song</button><br><br>
+    		<div class="col-lg-10 col-lg-offset-1 audio-buttons">
+    		
+			
+	    		<button class="theme-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect"><span class="glyphicon glyphicon-music"></span></button>
+	        	&nbsp;&nbsp;<span class="enjoy">Enjoy the theme!</span>&nbsp;&nbsp;
+	        	<button class="pause-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><span class="glyphicon glyphicon-pause"></span></button><br><br>
+        	</div>
+    	</div>
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-1">
             	<div class="panel panel-default">
 	  				<div class="panel-heading select">Select your player</div>
 	  				<div class="panel-body character-select">
 					</div>
-	    			<!-- Ends Panel -->
     			</div>
-    		<!-- Ends Column 1 -->
     		</div>
-    	<!-- Ends Row 1-->
     	</div>
 		<!-- Starts Row 2 -->
 		<div class="row">
@@ -68,8 +75,8 @@
     		<!-- Starts Column 1 -->
     		<div class="col-lg-2" id ="buttons">
             <!-- Starts Button -->
-    			<button type="button" class="btn btn-danger" id ="attack-button">Attack</button><br><br><br>
-    			<button type="button" class="btn btn-success" id ="restart-button">Restart</button>
+    			<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id ="attack-button">Attack</button><br><br><br>
+    			<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id ="restart-button">Restart</button><br><br>
     		<!-- Ends Button -->
     		<!-- Ends Column 2 -->
     		</div>
@@ -93,7 +100,13 @@
     <!--Ends Container -->
 	</div>
 
+<style>
+.btn-warning, .btn-default {
 
+	background-color: #d05f5f;
+
+}
+</style>
 		
 </body>
 </html>
